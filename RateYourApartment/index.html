@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home Page</title>
+
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script defer src="script.js"></script>
+    <script defer src = "main.js"></script>
+
+</head>
+
+<body>
+    <nav class = "navbar">
+        <div class="logo-container">
+        <img src="images/RYAKuroStyle.png" class="logo-img">
+        <h1 class="logo">Rate Your Apartment</h1>
+        </div>
+        <ul class = "nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#searchSection">Search</a></li>
+            <li><a href="myreviews.html">MyReviews</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+  <div id="selectionInfo" style="display:none">
+    <img id="selectionImg" src="" alt="">
+    <h1 id="selectionTitle"></h1>
+    <h2 id="selectionRating"></h2>
+    <h3 id="selectionPrice"></h3>
+    <p id="description"></p>
+    <li id="cleanliness"></li>
+    <li id="landlord"></li>
+    <li id="moveIn"></li>
+    <li id="responsiveness"></li>
+    <li id="audio"></li>
+    <p></p>
+    <button id="showListings" class="box"> Back to Listings</button>
+    <h2>Enter review here!</h2>
+    <p></p>
+    <div id="typing-container">
+      <form>
+        <!-- @NOTE this input has an id #username -->
+        <div class="input-container">
+          <label>Username:</label>
+          <input type="text" id="username" />
+        </div>
+
+        <!-- @NOTE this input has an id #message -->
+        <div class="input-container">
+          <label>Message:</label>
+          <input type="text" id="reviewText" />
+        </div>
+
+        <div class='input-container'>
+          <label>Email:</label>
+          <input type='text' id="email" />
+        </div>
+      </form>
+
+      <button id="sendReview">Send</button>
+    </div>
+    <h2>Reviews</h2>
+    <div id="reviewSection">
+
+    </div>
+  </div>
+    <div id="listing">
+    <div id="apartment_row" class="apartments-img">
+        <div class = "apartment-image">
+            <img id="apartments" src="https://wallpapers.com/images/hd/high-rise-apartment-16fpme9sb99sw7yk.jpg">
+            <p class = "apartment-name">The High Rise <span class = "rating">★4.2</span></p>
+        </div>
+        <div class = "apartment-image">
+            <img id="apartments" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/167cf9181457373.651c5fecd32ff.jpg">
+            <p class = "apartment-name">The Modern Apartment <span class = "rating">★3.2</span> </p>
+        </div>
+
+
+    </div>
+        <div id="apartment_row" class="apartments-img">
+        <div class = "apartment-image">
+            <img id="apartments" src="https://tse4.mm.bing.net/th/id/OIP.h1CiQuMG3QleGqQjQmSOswHaGj?w=500&h=442&rs=1&pid=ImgDetMain&o=7&rm=3">
+            <p class = "apartment-name">Luxury 4 Story House <span class = "rating">★4.7</span></p>
+        </div>
+        <div class = "apartment-image">
+            <img id="apartments" src="https://content.instructables.com/F5W/55WD/GJHVGX42/F5W55WDGJHVGX42.jpg?auto=web">
+            <p class = "apartment-name">Dirt Cheap Dirt House <span class = "rating">★1.8</span></p>
+        </div>
+    </div>
+
+    <div id = "apartment_row" class = "apartments-img">
+       <div class = "apartment-image">
+            <img id="apartments" src="https://lustforthesublime.com/wp-content/uploads/2018/10/The-Terrace.jpg">
+            <p class = "apartment-name">Arab Al Burj <span class = "rating">★5</span></p>
+        </div>
+         <div class = "apartment-image">
+            <img id="apartments" src="https://cdngeneral.rentcafe.com/dmslivecafe/3/155743/3_155743_1016688.jpg?crop=(0,0,300,337)&cropxunits=300&cropyunits=337&width=480&quality=90">
+            <p class = "apartment-name">Manhattan Apartment <span class = "rating">★3.9</span></p>
+        </div>
+    </div>
+
+    <div id = "apartment_row" class = "apartments-img">
+      <div class = "apartment-image">
+            <img id="apartments" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYURCmHftiIcEBIyQBMHWe1Ez8OgbuWjAlrw&s">
+            <p class = "apartment-name">Shadow Apartment <span class = "rating">★4.3</span></p>
+        </div>
+         <div class = "apartment-image">
+            <img id="apartments" src="https://www.shutterstock.com/image-photo/modern-apartment-building-balconies-greenery-600nw-2606887531.jpg">
+            <p class = "apartment-name">The Verdi Terrace <span class = "rating">★4.2</span></p>
+        </div>
+    </div>
+
+    <div id = "apartment_row" class = "apartments-img">
+      <div class = "apartment-image">
+            <img id="apartments" src="https://s1.q4cdn.com/498755859/files/images/irw/JeffersonSandLake_014Crop4.jpg">
+            <p class = "apartment-name">Palmview Residences <span class = "rating">★4.5</span></p>
+        </div>
+         <div class = "apartment-image">
+            <img id="apartments" src="https://st2.depositphotos.com/1015412/8130/i/450/depositphotos_81301130-stock-photo-new-apartment-complex-in-suburban.jpg">
+            <p class = "apartment-name">Cedar Grove Apartments <span class = "rating">★3.7</span></p>
+        </div>
+    </div>
+
+    <section id="searchSection" class="rya-toolbar" aria-label="Quick action">
+        <input id="ryaSearch" type="search" placeholder="Search apartments (press /)" aria-label="search apartment" />
+        <label class="rya-fav-toggle">
+        <input id="ryaOnlyFavs" type="checkbox" />
+        <span>Show favorites only</span>
+      </label>
+    </section>
+
+    
+    <div class="rya-modal" id="ryaModal" aria-hidden="true">
+      <div class="rya-dialog" role="dialog" aria-modal="true" aria-labelledby="ryaTitle">
+        <header class="rya-dialog-header">
+          <h3 id="ryaTitle"></h3>
+          <button id="ryaClose" type="button" class="rya-btn">Close</button>
+        </header>
+        <div class="rya-media"><img id="ryaImg" alt=""></div>
+        <div class="rya-dialog-body">
+          <div class="rya-stars" id="ryaStars"></div>
+          <div class="rya-actions">
+            <a id="ryaReviewsLink" class="rya-btn" href="myreviews.html">View Reviews</a>
+            <button id="ryaFavToggle" class="rya-btn" type="button">Favorite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button id="ryaTop" class="rya-top" type="button" aria-label="Back to top">↑</button>
+
+   
+
+    </div>
+    <footer>
+    <p>© 2025 Rate Your Apartment. All rights reserved.</p>
+    </footer>
+</body>
+</html>
